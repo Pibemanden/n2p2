@@ -32,7 +32,8 @@ include $(PROJECT_DIR)/src/makefile.$(COMP)
 # available options:
 #    * LAMMPS
 #    * CabanaMD
-INTERFACES=LAMMPS CabanaMD
+#    * PIMD
+INTERFACES=LAMMPS CabanaMD PIMD
 
 
 ###############################################################################
@@ -77,6 +78,12 @@ HEADERS:=$(HEADERS) $(wildcard $(IF)/*.h)
 endif
 
 IF=CabanaMD
+ifneq ($(filter $(IF),$(INTERFACES)),)
+SRC:=$(SRC) $(wildcard $(IF)/*.cpp)
+HEADERS:=$(HEADERS) $(wildcard $(IF)/*.h)
+endif
+
+IF=PIMD
 ifneq ($(filter $(IF),$(INTERFACES)),)
 SRC:=$(SRC) $(wildcard $(IF)/*.cpp)
 HEADERS:=$(HEADERS) $(wildcard $(IF)/*.h)

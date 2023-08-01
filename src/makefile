@@ -36,7 +36,8 @@ INSTALL_LIB=$(HOME)/local/lib
 # space-separated list of the following available options:
 #    * LAMMPS
 #    * CabanaMD
-INTERFACES=LAMMPS CabanaMD
+#    * PIMD
+INTERFACES=LAMMPS CabanaMD PIMD
 
 
 ###############################################################################
